@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🗺 폐업 가게 지도 (Closed Radar)
 
-## Getting Started
+## 📌 프로젝트 개요
 
-First, run the development server:
+대한민국의 경제 불황 속에서 주변 상권의 폐업 현황을 한눈에 파악할 수 있도록 지도 기반으로 시각화하는 웹 애플리케이션.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎯 목표
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 공공데이터를 기반으로 **폐업 가게 위치를 지도에 시각화**
+- 사용자가 **지역(구/동) 또는 현재 위치 기반으로 폐업 현황을 탐색** 가능
+- 상권 변화에 대한 인사이트 제공
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 사용 기술 스택
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **프론트엔드**: Next.js (App Router, TypeScript), React
+- **지도 API**: Naver Map API
+- **스타일링**: Tailwind CSS (또는 CSS Modules)
+- **데이터**: 공공데이터포털 폐업 상점 정보 API
+- **위치 변환**: Naver 또는 Kakao Geocoding API
 
-## Learn More
+## 🧩 핵심 기능
 
-To learn more about Next.js, take a look at the following resources:
+### 1. 폐업 가게 지도 시각화
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 폐업한 가게 위치를 마커로 지도에 표시
+- 클러스터링 지원 (가게 밀집 지역 표시)
+- 마커 클릭 시 상세 정보 팝업
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 2. 지역 검색 기능
 
-## Deploy on Vercel
+- 특정 지역(시/구/동) 기준 폐업 가게 필터링
+- 검색 시 지도 위치 자동 이동
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. 사용자 현재 위치 기반 탐색
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 브라우저 위치 권한 요청
+- 주변 폐업 가게 자동 표시
+
+### 4. 가게 상세 정보 제공
+
+- 업종, 상호명, 폐업 시점 등
+
+### 5. 폐업 통계 대시보드 (확장 기능)
+
+- 업종별 폐업 수 변화
+- 지역별 비교 차트
+
+## 🔑 외부 API 및 데이터 출처
+
+| 이름                      | 설명                        | 링크                                                              |
+| ------------------------- | --------------------------- | ----------------------------------------------------------------- |
+| 상가(상점)정보 - 폐업상가 | 전국 폐업 상점 데이터       | [공공데이터포털](https://www.data.go.kr/data/15083037/openapi.do) |
+| Naver Map API             | 지도 표시, 마커, 클러스터링 | [네이버 클라우드 플랫폼](https://www.ncloud.com/)                 |
+| 주소 → 좌표 변환          | 지오코딩 API                | Naver 또는 Kakao                                                  |
+
+## 🚧 개발 예정 순서
+
+1. Next.js 프로젝트 구조 세팅
+2. Naver Map 연동 및 마커 표시
+3. 공공데이터 샘플 불러오기
+4. 검색 및 필터 기능 개발
+5. 좌표 변환 기능 추가
+6. 대시보드(선택)
+
+## ✨ 기대 효과
+
+- 사용자 주변 상권의 변화 인식
+- 상업적 입지 전략 수립에 도움
+- 공공 데이터를 활용한 시각적 UX 제공
